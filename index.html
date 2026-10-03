@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    />
+
+    <title>KEN — Keep Every Next-step</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+<body>
+
+<!-- =========================================================
+     BACKGROUND
+========================================================= -->
+
+<div class="background-scene">
+
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
+    <div class="orb orb-three"></div>
+
+    <div class="cloud cloud-one"></div>
+    <div class="cloud cloud-two"></div>
+
+    <div class="floating-shape shape-one"></div>
+    <div class="floating-shape shape-two"></div>
+
+</div>
+
+
+<!-- =========================================================
+     APP
+========================================================= -->
+
+<div id="app">
+
+
+    <!-- =====================================================
+         AUTH SCREEN
+    ====================================================== -->
+
+    <section id="authScreen" class="screen active">
+
+        <div class="auth-layout">
+
+            <div class="auth-art">
+
+                <div class="art-label">
+                    KEN / 01
+                </div>
+
+                <div class="surreal-object">
+
+                    <div class="moon"></div>
+
+                    <div class="floating-person">
+                        <span></span>
+                    </div>
+
+                    <div class="ladder"></div>
+
+                    <div class="cloud-large"></div>
+
+                    <div class="art-text">
+                        KEEP<br>
+                        YOUR<br>
+                        WORD
+                    </div>
+
+                </div>
+
+                <div class="art-caption">
+                    A commitment is a promise<br>
+                    that can move by itself.
+                </div>
+
+            </div>
+
+
+            <div class="auth-panel">
+
+                <div class="brand">
+                    <span class="brand-mark">K</span>
+                    <span>KEN</span>
+                </div>
+
+                <div class="auth-heading">
+
+                    <p class="eyebrow">
+                        KEEP EVERY NEXT-STEP
+                    </p>
+
+                    <h1>
+                        Make a promise<br>
+                        <em>hard to escape.</em>
+                    </h1>
+
+                    <p>
+                        KEN turns your own commitment into
+                        an autonomous execution loop.
+                    </p>
+
+                </div>
+
+
+                <!-- SIGN IN -->
+
+                <div id="signinForm" class="auth-form">
+
+                    <h2>Welcome back.</h2>
+
+                    <label>Email</label>
+                    <input
+                        id="loginEmail"
+                        type="email"
+                        placeholder="you@example.com"
+                    >
+
+                    <label>Password</label>
+                    <input
+                        id="loginPassword"
+                        type="password"
+                        placeholder="••••••••"
+                    >
+
+                    <button
+                        class="primary-button"
+                        onclick="login()"
+                    >
+                        Enter KEN →
+                    </button>
+
+                    <p class="switch-text">
+                        New here?
+                        <button
+                            class="text-button"
+                            onclick="showSignup()"
+                        >
+                            Create account
+                        </button>
+                    </p>
+
+                </div>
+
+
+                <!-- SIGN UP -->
+
+                <div id="signupForm"
+                     class="auth-form hidden">
+
+                    <h2>Create your account.</h2>
+
+                    <label>Your name</label>
+                    <input
+                        id="signupName"
+                        type="text"
+                        placeholder="Rohit"
+                    >
+
+                    <label>Email</label>
+                    <input
+                        id="signupEmail"
+                        type="email"
+                        placeholder="you@example.com"
+                    >
+
+                    <label>Password</label>
+                    <input
+                        id="signupPassword"
+                        type="password"
+                        placeholder="Create a password"
+                    >
+
+                    <button
+                        class="primary-button"
+                        onclick="signup()"
+                    >
+                        Create my KEN →
+                    </button>
+
+                    <p class="switch-text">
+                        Already have an account?
+                        <button
+                            class="text-button"
+                            onclick="showSignin()"
+                        >
+                            Sign in
+                        </button>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         MAIN APP
+    ====================================================== -->
+
+    <section id="mainApp" class="screen hidden">
+
+        <!-- TOP NAV -->
+
+        <header class="topbar">
+
+            <div class="brand">
+                <span class="brand-mark">K</span>
+                <span>KEN</span>
+            </div>
+
+            <div class="top-status">
+
+                <span class="status-dot"></span>
+
+                <span>
+                    KEN is watching
+                </span>
+
+            </div>
+
+            <button
+                class="menu-button"
+                onclick="openMenu()"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        </header>
+
+
+        <!-- =================================================
+             HOME
+        ================================================== -->
+
+        <section
+            id="homePage"
+            class="page active-page"
+        >
+
+            <div class="home-grid">
+
+                <div class="home-intro">
+
+                    <p class="eyebrow">
+                        WEDNESDAY / 30 SEP 2026
+                    </p>
+
+                    <h1>
+                        Good evening,<br>
+                        <span id="userNameDisplay">
+                            Rohit
+                        </span>.
+                    </h1>
+
+                    <p class="large-description">
+                        You made a promise.
+                        KEN is keeping track.
+                    </p>
+
+                    <button
+                        class="primary-button big"
+                        onclick="navigate('commitmentPage')"
+                    >
+                        + Make a commitment
+                    </button>
+
+                </div>
+
+
+                <!-- SURREAL HERO -->
+
+                <div class="home-art">
+
+                    <div class="hero-cloud"></div>
+
+                    <div class="hero-sphere">
+                        <div class="sphere-ring"></div>
+                    </div>
+
+                    <div class="hero-ladder"></div>
+
+                    <div class="hero-person">
+                        ●
+                    </div>
+
+                    <div class="hero-word">
+                        DO<br>
+                        IT.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CURRENT COMMITMENT -->
+
+            <div class="section-header">
+
+                <div>
+                    <p class="eyebrow">
+                        ACTIVE COMMITMENT
+                    </p>
+
+                    <h2>
+                        Your promise
+                    </h2>
+                </div>
+
+                <span class="small-badge">
+                    01 ACTIVE
+                </span>
+
+            </div>
+
+
+            <div class="commitment-card">
+
+                <div class="commitment-date">
+                    <span>30</span>
+                    <small>SEP</small>
+                </div>
+
+                <div class="commitment-content">
+
+                    <p class="eyebrow">
+                        CHESS
+                    </p>
+
+                    <h3>
+                        Play 10 blitz matches
+                    </h3>
+
+                    <p>
+                        Deadline: 11:59 PM
+                    </p>
+
+                </div>
+
+                <div class="commitment-progress">
+
+                    <div class="progress-number">
+                        4<span>/10</span>
+                    </div>
+
+                    <div class="progress-track">
+                        <div
+                            class="progress-fill"
+                            style="width:40%"
+                        ></div>
+                    </div>
+
+                    <small>
+                        40% verified
+                    </small>
+
+                </div>
+
+                <div class="commitment-state">
+                    <span class="state-dot warning"></span>
+                    In progress
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CREATE COMMITMENT
+        ================================================== -->
+
+        <section
+            id="commitmentPage"
+            class="page"
+        >
+
+            <div class="page-heading">
+
+                <p class="eyebrow">
+                    STEP 01 / COMMIT
+                </p>
+
+                <h1>
+                    What are you<br>
+                    willing to do?
+                </h1>
+
+                <p>
+                    Be specific. KEN will use these rules
+                    later without asking you what to do.
+                </p>
+
+            </div>
+
+
+            <div class="form-card">
+
+                <div class="form-step">
+
+                    <label>
+                        What do you want to accomplish?
+                    </label>
+
+                    <input
+                        id="goalInput"
+                        type="text"
+                        placeholder="Example: Play 10 blitz chess matches"
+                    >
+
+                </div>
+
+
+                <div class="two-column">
+
+                    <div class="form-step">
+
+                        <label>
+                            Category
+                        </label>
+
+                        <select id="categoryInput">
+
+                            <option>Study</option>
+                            <option>Fitness</option>
+                            <option selected>Chess</option>
+                            <option>Work</option>
+                            <option>Personal</option>
+                            <option>Other</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-step">
+
+                        <label>
+                            Minimum target
+                        </label>
+
+                        <input
+                            id="minimumInput"
+                            type="number"
+                            placeholder="10"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="two-column">
+
+                    <div class="form-step">
+
+                        <label>
+                            Date
+                        </label>
+
+                        <input
+                            id="dateInput"
+                            type="date"
+                            value="2026-09-30"
+                        >
+
+                    </div>
+
+
+                    <div class="form-step">
+
+                        <label>
+                            Deadline
+                        </label>
+
+                        <input
+                            id="deadlineInput"
+                            type="time"
+                            value="23:59"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-step">
+
+                    <label>
+                        What proves you did it?
+                    </label>
+
+                    <select id="verificationInput">
+
+                        <option>
+                            Connected activity data
+                        </option>
+
+                        <option>
+                            Screenshot / evidence
+                        </option>
+
+                        <option>
+                            Manual verification
+                        </option>
+
+                        <option>
+                            External API
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-step">
+
+                    <label>
+                        What is at stake?
+                    </label>
+
+                    <div class="money-input">
+
+                        <span>₹</span>
+
+                        <input
+                            id="stakeInput"
+                            type="number"
+                            placeholder="750"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-step">
+
+                    <label>
+                        What happens if you fail?
+                    </label>
+
+                    <textarea
+                        id="consequenceInput"
+                        placeholder="Send the ₹750 to the pre-agreed destination."
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    class="primary-button big full"
+                    onclick="reviewCommitment()"
+                >
+                    Continue →
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             REVIEW
+        ================================================== -->
+
+        <section
+            id="reviewPage"
+            class="page"
+        >
+
+            <div class="page-heading">
+
+                <p class="eyebrow">
+                    STEP 02 / CONTRACT
+                </p>
+
+                <h1>
+                    Read your<br>
+                    promise carefully.
+                </h1>
+
+            </div>
+
+
+            <div class="contract-paper">
+
+                <div class="contract-header">
+
+                    <span>
+                        KEN CONTRACT
+                    </span>
+
+                    <span>
+                        #KEN-001
+                    </span>
+
+                </div>
+
+
+                <div class="contract-main">
+
+                    <p class="contract-label">
+                        I COMMIT TO
+                    </p>
+
+                    <h2 id="reviewGoal">
+                        Play 10 blitz chess matches
+                    </h2>
+
+                    <div class="contract-details">
+
+                        <div>
+                            <span>DATE</span>
+                            <strong id="reviewDate">
+                                30 September 2026
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>DEADLINE</span>
+                            <strong id="reviewDeadline">
+                                11:59 PM
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>STAKE</span>
+                            <strong id="reviewStake">
+                                ₹750
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>VERIFICATION</span>
+                            <strong id="reviewVerification">
+                                Activity evidence
+                            </strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contract-consequence">
+
+                        <span>
+                            IF I FAIL
+                        </span>
+
+                        <p id="reviewConsequence">
+                            The pre-agreed consequence will be executed.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contract-footer">
+
+                    <label class="checkbox-row">
+
+                        <input
+                            type="checkbox"
+                            id="contractCheck"
+                        >
+
+                        <span>
+                            I understand and authorize this commitment.
+                        </span>
+
+                    </label>
+
+
+                    <button
+                        class="primary-button big full"
+                        onclick="authorizeCommitment()"
+                    >
+                        Authorize commitment →
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             AUTHORIZATION
+        ================================================== -->
+
+        <section
+            id="authorizationPage"
+            class="page"
+        >
+
+            <div class="page-heading">
+
+                <p class="eyebrow">
+                    STEP 03 / AUTHORIZATION
+                </p>
+
+                <h1>
+                    Who can KEN<br>
+                    call when you hesitate?
+                </h1>
+
+                <p>
+                    This person is chosen by you.
+                    KEN cannot contact them without your authorization.
+                </p>
+
+            </div>
+
+
+            <div class="authorization-layout">
+
+                <div class="person-card">
+
+                    <div class="avatar">
+                        RM
+                    </div>
+
+                    <div>
+
+                        <p class="eyebrow">
+                            ACCOUNTABILITY PERSON
+                        </p>
+
+                        <h2>
+                            Rahul Makde
+                        </h2>
+
+                        <p>
+                            +91 98XXXXXX21
+                        </p>
+
+                    </div>
+
+                    <span class="verified-badge">
+                        ✓ Authorized
+                    </span>
+
+                </div>
+
+
+                <div class="authorization-options">
+
+                    <label class="option-card">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <div>
+
+                            <strong>
+                                Reminder messages
+                            </strong>
+
+                            <p>
+                                KEN can send status and
+                                deadline messages.
+                            </p>
+
+                        </div>
+
+                    </label>
+
+
+                    <label class="option-card">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <div>
+
+                            <strong>
+                                Gnani voice intervention
+                            </strong>
+
+                            <p>
+                                KEN may use my selected
+                                accountability voice.
+                            </p>
+
+                        </div>
+
+                    </label>
+
+
+                    <label class="option-card">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <div>
+
+                            <strong>
+                                Accountability call
+                            </strong>
+
+                            <p>
+                                KEN may contact my chosen
+                                person if intervention fails.
+                            </p>
+
+                        </div>
+
+                    </label>
+
+                </div>
+
+
+                <button
+                    class="primary-button big full"
+                    onclick="finishAuthorization()"
+                >
+                    Authorize KEN →
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             TODAY
+        ================================================== -->
+
+        <section
+            id="todayPage"
+            class="page"
+        >
+
+            <div class="today-layout">
+
+                <div>
+
+                    <p class="eyebrow">
+                        TODAY / 30 SEPTEMBER
+                    </p>
+
+                    <h1>
+                        Four down.<br>
+                        <em>Six to go.</em>
+                    </h1>
+
+                    <p class="large-description">
+                        Your commitment is active.
+                    </p>
+
+                </div>
+
+
+                <div class="giant-progress">
+
+                    <div class="progress-circle">
+
+                        <span>
+                            40%
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="activity-grid">
+
+                <div class="activity-card completed">
+
+                    <span>01</span>
+
+                    <strong>
+                        Match completed
+                    </strong>
+
+                    <small>
+                        Verified
+                    </small>
+
+                </div>
+
+
+                <div class="activity-card completed">
+
+                    <span>02</span>
+
+                    <strong>
+                        Match completed
+                    </strong>
+
+                    <small>
+                        Verified
+                    </small>
+
+                </div>
+
+
+                <div class="activity-card completed">
+
+                    <span>03</span>
+
+                    <strong>
+                        Match completed
+                    </strong>
+
+                    <small>
+                        Verified
+                    </small>
+
+                </div>
+
+
+                <div class="activity-card completed">
+
+                    <span>04</span>
+
+                    <strong>
+                        Match completed
+                    </strong>
+
+                    <small>
+                        Verified
+                    </small>
+
+                </div>
+
+
+                <div class="activity-card empty">
+
+                    <span>05</span>
+
+                    <strong>
+                        Waiting
+                    </strong>
+
+                    <small>
+                        Not verified
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="deadline-banner">
+
+                <div>
+
+                    <span class="eyebrow">
+                        TIME REMAINING
+                    </span>
+
+                    <strong id="countdown">
+                        03:21:45
+                    </strong>
+
+                </div>
+
+                <button
+                    class="secondary-button"
+                    onclick="navigate('reminderPage')"
+                >
+                    View KEN status
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             REMINDER / INTERVENTION
+        ================================================== -->
+
+        <section
+            id="reminderPage"
+            class="page"
+        >
+
+            <div class="intervention-layout">
+
+                <div class="intervention-art">
+
+                    <div class="phone-orbit">
+
+                        <div class="phone-mock">
+
+                            <div class="phone-notch"></div>
+
+                            <div class="phone-screen">
+
+                                <small>
+                                    KEN
+                                </small>
+
+                                <h3>
+                                    You said<br>
+                                    you'd play.
+                                </h3>
+
+                                <div class="voice-wave">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+
+                                <p>
+                                    Gnani voice intervention
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="intervention-content">
+
+                    <p class="eyebrow">
+                        HIGH-FRICTION MOMENT
+                    </p>
+
+                    <h1>
+                        KEN noticed<br>
+                        <em>hesitation.</em>
+                    </h1>
+
+                    <p>
+                        You told KEN:
+                    </p>
+
+                    <blockquote>
+                        “I'm tired. I'll play tomorrow.”
+                    </blockquote>
+
+
+                    <div class="intervention-status">
+
+                        <span class="status-dot warning"></span>
+
+                        <div>
+
+                            <strong>
+                                Intervention 01 / 02
+                            </strong>
+
+                            <small>
+                                Gnani voice intervention
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="primary-button big full"
+                        onclick="simulateGnani()"
+                    >
+                        Play Gnani intervention
+                    </button>
+
+
+                    <button
+                        class="text-button centered"
+                        onclick="simulateAccountabilityCall()"
+                    >
+                        Skip to accountability call
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CALL
+        ================================================== -->
+
+        <section
+            id="callPage"
+            class="page"
+        >
+
+            <div class="call-screen">
+
+                <p class="eyebrow">
+                    KEN / OUTBOUND CALL
+                </p>
+
+                <div class="call-avatar">
+                    RM
+                </div>
+
+                <h1>
+                    Calling Rahul
+                </h1>
+
+                <p>
+                    Accountability person
+                </p>
+
+                <div class="call-wave">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+
+                <div class="call-transcript">
+
+                    <span>KEN</span>
+
+                    <p>
+                        “Rohit committed to completing
+                        10 blitz matches today.
+                        He has completed 4.
+                        The deadline is approaching.
+                        The commitment requires him
+                        to complete the remaining matches.”
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="primary-button big"
+                    onclick="finishCall()"
+                >
+                    End call
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             VERIFICATION
+        ================================================== -->
+
+        <section
+            id="verificationPage"
+            class="page"
+        >
+
+            <div class="page-heading centered-heading">
+
+                <p class="eyebrow">
+                    STEP 06 / VERIFICATION
+                </p>
+
+                <h1>
+                    Show KEN<br>
+                    what happened.
+                </h1>
+
+                <p>
+                    KEN does not treat your statement alone
+                    as independent verification.
+                </p>
+
+            </div>
+
+
+            <div class="verification-card">
+
+                <div class="verification-icon">
+                    ?
+                </div>
+
+                <h2>
+                    Did you complete the commitment?
+                </h2>
+
+                <p>
+                    Requirement:
+                    <strong>
+                        10 blitz matches
+                    </strong>
+                </p>
+
+
+                <div class="verification-options">
+
+                    <button
+                        class="verification-option"
+                        onclick="verifySuccess()"
+                    >
+                        <span>✓</span>
+
+                        <div>
+                            <strong>
+                                Yes — evidence available
+                            </strong>
+
+                            <small>
+                                KEN will check the evidence.
+                            </small>
+                        </div>
+
+                    </button>
+
+
+                    <button
+                        class="verification-option danger"
+                        onclick="verifyFailure()"
+                    >
+                        <span>×</span>
+
+                        <div>
+                            <strong>
+                                No — I did not complete it
+                            </strong>
+
+                            <small>
+                                KEN will assess the commitment.
+                            </small>
+                        </div>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SUCCESS
+        ================================================== -->
+
+        <section
+            id="successPage"
+            class="page outcome-page"
+        >
+
+            <div class="outcome-art success-art">
+
+                <div class="floating-star">
+                    ★
+                </div>
+
+                <div class="giant-check">
+                    ✓
+                </div>
+
+            </div>
+
+
+            <p class="eyebrow">
+                COMMITMENT COMPLETE
+            </p>
+
+            <h1>
+                You kept<br>
+                <em>your word.</em>
+            </h1>
+
+            <p>
+                KEN verified the required activity.
+                No consequence was triggered.
+            </p>
+
+            <button
+                class="primary-button big"
+                onclick="navigate('homePage')"
+            >
+                Back to dashboard
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FAILURE
+        ================================================== -->
+
+        <section
+            id="failurePage"
+            class="page outcome-page"
+
+        >
+
+            <div class="outcome-art failure-art">
+
+                <div class="giant-x">
+                    ×
+                </div>
+
+            </div>
+
+
+            <p class="eyebrow">
+                COMMITMENT FAILED
+            </p>
+
+            <h1>
+                The promise<br>
+                <em>wasn't completed.</em>
+            </h1>
+
+            <p>
+                KEN found no sufficient verification
+                before the deadline.
+            </p>
+
+
+            <div class="enforcement-card">
+
+                <span>
+                    PRE-AGREED CONSEQUENCE
+                </span>
+
+                <strong>
+                    ₹750
+                </strong>
+
+                <p>
+                    The authorized consequence
+                    will now be executed.
+                </p>
+
+                <div class="enforcement-status">
+                    ● Enforcement pending
+                </div>
+
+            </div>
+
+
+            <button
+                class="primary-button danger-button big"
+                onclick="simulateEnforcement()"
+            >
+                Execute consequence
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             PROFILE
+        ================================================== -->
+
+        <section
+            id="profilePage"
+            class="page"
+        >
+
+            <div class="page-heading">
+
+                <p class="eyebrow">
+                    YOUR KEN
+                </p>
+
+                <h1>
+                    Profile &<br>
+                    permissions.
+                </h1>
+
+            </div>
+
+
+            <div class="profile-card">
+
+                <div class="profile-avatar">
+                    RM
+                </div>
+
+                <div>
+
+                    <h2>
+                        Rohit Makde
+                    </h2>
+
+                    <p>
+                        rohit@example.com
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-section">
+
+                <h3>
+                    Accountability person
+                </h3>
+
+                <div class="setting-row">
+
+                    <div>
+
+                        <strong>
+                            Rahul Makde
+                        </strong>
+
+                        <small>
+                            +91 98XXXXXX21
+                        </small>
+
+                    </div>
+
+                    <button class="secondary-button">
+                        Edit
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-section">
+
+                <h3>
+                    KEN permissions
+                </h3>
+
+
+                <div class="setting-row">
+
+                    <div>
+
+                        <strong>
+                            Reminder messages
+                        </strong>
+
+                        <small>
+                            WhatsApp / Messages
+                        </small>
+
+                    </div>
+
+                    <span class="toggle active"></span>
+
+                </div>
+
+
+                <div class="setting-row">
+
+                    <div>
+
+                        <strong>
+                            Gnani voice
+                        </strong>
+
+                        <small>
+                            Intervention calls
+                        </small>
+
+                    </div>
+
+                    <span class="toggle active"></span>
+
+                </div>
+
+
+                <div class="setting-row">
+
+                    <div>
+
+                        <strong>
+                            Financial consequence
+                        </strong>
+
+                        <small>
+                            Only according to active contracts
+                        </small>
+
+                    </div>
+
+                    <span class="toggle active"></span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SIDE MENU
+    ====================================================== -->
+
+    <aside
+        id="sideMenu"
+        class="side-menu"
+    >
+
+        <button
+            class="close-menu"
+            onclick="closeMenu()"
+        >
+            ×
+        </button>
+
+
+        <div class="menu-profile">
+
+            <div class="menu-avatar">
+                RM
+            </div>
+
+            <strong>
+                Rohit Makde
+            </strong>
+
+            <small>
+                KEN member
+            </small>
+
+        </div>
+
+
+        <nav>
+
+            <button onclick="navigate('homePage'); closeMenu()">
+                <span>◉</span>
+                Home
+            </button>
+
+            <button onclick="navigate('commitmentPage'); closeMenu()">
+                <span>＋</span>
+                New commitment
+            </button>
+
+            <button onclick="navigate('todayPage'); closeMenu()">
+                <span>◷</span>
+                Today's commitment
+            </button>
+
+            <button onclick="navigate('profilePage'); closeMenu()">
+                <span>◎</span>
+                Profile & permissions
+            </button>
+
+        </nav>
+
+
+        <div class="menu-bottom">
+
+            <p>
+                KEN
+            </p>
+
+            <small>
+                Keep Every Next-step
+            </small>
+
+        </div>
+
+    </aside>
+
+
+    <div
+        id="menuOverlay"
+        class="menu-overlay"
+        onclick="closeMenu()"
+    ></div>
+
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
